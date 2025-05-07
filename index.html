@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I Workshop RALI - INCT-TILD-IAR</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+        }
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        .schedule-item {
+            transition: all 0.3s ease;
+        }
+        .schedule-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-brain text-blue-600 text-2xl mr-2"></i>
+                        <span class="text-xl font-bold text-blue-800">Workshop RALI</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Sobre</a>
+                    <a href="#schedule" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Programação</a>
+                    <a href="#topics" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Temas</a>
+                    <a href="#committee" class="text-gray-700 hover:text-blue-600 px-3 py-2 text-sm font-medium">Comitê</a>
+                    <a href="#registration" class="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition duration-300">Inscrição</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-gray-700 hover:text-blue-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white pb-3 px-4">
+            <a href="#about" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Sobre</a>
+            <a href="#schedule" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Programação</a>
+            <a href="#topics" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Temas</a>
+            <a href="#committee" class="block px-3 py-2 text-gray-700 hover:text-blue-600">Comitê</a>
+            <a href="#registration" class="block bg-blue-600 text-white px-3 py-2 rounded-md text-center mt-2 hover:bg-blue-700">Inscrição</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero-gradient text-white py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Workshop RALI</h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">I Workshop do INCT em Inteligência Artificial Responsável para Linguística Computacional</h2>
+                    <p class="text-lg mb-8">Integrando especialistas em IA, linguística computacional e tratamento de informação para avançar a pesquisa brasileira.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#registration" class="bg-white text-blue-600 px-6 py-3 rounded-md font-medium text-center hover:bg-gray-100 transition duration-300">
+                            <i class="fas fa-user-plus mr-2"></i> Inscreva-se
+                        </a>
+                        <a href="#about" class="border-2 border-white text-white px-6 py-3 rounded-md font-medium text-center hover:bg-white hover:text-blue-600 transition duration-300">
+                            <i class="fas fa-info-circle mr-2"></i> Saiba mais
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-blue-500 rounded-full opacity-20 animate-float" style="animation-delay: 0s;"></div>
+                        <div class="absolute inset-0 bg-blue-400 rounded-full opacity-20 animate-float" style="animation-delay: 1s; left: 20px; top: 20px;"></div>
+                        <div class="absolute inset-0 bg-blue-300 rounded-full opacity-20 animate-float" style="animation-delay: 2s; left: 40px; top: 40px;"></div>
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <i class="fas fa-users-cog text-6xl md:text-7xl text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Sobre o Workshop</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            
+            <div class="bg-blue-50 rounded-xl p-6 mb-10 border-l-4 border-blue-600">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">INCT-TILD-IAR</h3>
+                <p class="text-gray-700 mb-4">
+                    O Instituto Nacional de Ciência e Tecnologia (INCT) em Inteligência Artificial Responsável para Linguística Computacional e Tratamento e Disseminação de Informação (INCT-TILD-IAR) reúne pesquisadores de diversas instituições brasileiras para avançar a pesquisa em IA responsável aplicada à linguagem.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-bullseye text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Objetivo</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        Este workshop marca o primeiro encontro presencial dos pesquisadores do recém-criado INCT-TILD-IAR, integrando especialistas em banco de dados, IA, linguística aplicada, linguística computacional e tratamento de informação para promover sinergia entre diferentes domínios e consolidar esforços para o avanço da pesquisa brasileira.
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-blue-100 p-3 rounded-full mr-4">
+                            <i class="fas fa-calendar-check text-blue-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-800">Contexto</h3>
+                    </div>
+                    <p class="text-gray-600">
+                        O workshop será realizado em conjunto com três eventos de grande relevância científica: o Simpósio Brasileiro de Banco de Dados (SBBD), o Brazilian Conference on Intelligent Systems (BRACIS) e o Simpósio Brasileiro de Tecnologia da Informação e da Linguagem Humana (STIL), garantindo alta participação e engajamento.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-10 bg-gray-50 p-6 rounded-xl border border-gray-200">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Formato do Workshop</h3>
+                <p class="text-gray-600 mb-4">
+                    O workshop terá duração de 1 dia inteiro, com o seguinte formato:
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                        <span>Sessão de lançamento oficial do INCT (30 minutos)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                        <span>Sessão Técnica I - Linguística Computacional e IA Responsável e Sustentável (6 trabalhos + painel)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                        <span>Sessão Técnica II - Tratamento de Informação, Disseminação de Informação e Criação de Repositórios (6 trabalhos + painel)</span>
+                    </li>
+                    <li class="flex items-start">
+                        <i class="fas fa-check-circle text-blue-500 mt-1 mr-2"></i>
+                        <span>Sessão plenária final para discussão do projeto</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Section -->
+    <section id="schedule" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Programação</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                    Confira a programação completa do Workshop RALI, com apresentações representativas de cada linha de pesquisa do INCT-TILD-IAR.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-1 gap-6 max-w-4xl mx-auto">
+                <!-- Morning Session -->
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">08:30 - 09:00</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Registro e Café de Boas-vindas</h3>
+                            <p class="text-gray-600">Credenciamento dos participantes e networking</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">09:00 - 09:30</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Sessão de Abertura</h3>
+                            <p class="text-gray-600">Lançamento oficial do INCT-TILD-IAR</p>
+                            <p class="text-gray-500 mt-2"><i class="fas fa-user-tie mr-2"></i> Coordenador: Marcos André Gonçalves (UFMG) e Sub-Coordenador: Altigran Silva (UFAM)</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">09:30 - 11:30</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Sessão Técnica I</h3>
+                            <p class="text-gray-600">Linguística Computacional e IA Responsável e Sustentável</p>
+                            <div class="mt-3 space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-microphone text-blue-500 mt-1 mr-2"></i>
+                                    <span>6 apresentações de 10 minutos cada</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-comments text-blue-500 mt-1 mr-2"></i>
+                                    <span>Painel de discussão com todos os apresentadores (30 minutos)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">11:30 - 13:30</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Intervalo para Almoço</h3>
+                            <p class="text-gray-600">Networking e discussões informais</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Afternoon Session -->
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">13:30 - 15:30</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Sessão Técnica II</h3>
+                            <p class="text-gray-600">Tratamento de Informação, Disseminação de Informação e Criação de Repositórios</p>
+                            <div class="mt-3 space-y-3">
+                                <div class="flex items-start">
+                                    <i class="fas fa-microphone text-blue-500 mt-1 mr-2"></i>
+                                    <span>6 apresentações de 10 minutos cada</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <i class="fas fa-comments text-blue-500 mt-1 mr-2"></i>
+                                    <span>Painel de discussão com todos os apresentadores (20 minutos)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">15:30 - 16:00</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Coffee Break</h3>
+                            <p class="text-gray-600">Networking e discussões</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">16:00 - 17:30</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Sessão Plenária Final</h3>
+                            <p class="text-gray-600">Discussão do projeto e próximos passos para o INCT-TILD-IAR</p>
+                            <p class="text-gray-500 mt-2"><i class="fas fa-users mr-2"></i> Participação de todos os membros do INCT</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="schedule-item bg-white p-6 rounded-xl shadow-md">
+                    <div class="flex items-start">
+                        <div class="bg-blue-100 text-blue-800 px-4 py-2 rounded-lg mr-4">
+                            <span class="font-bold">17:30</span>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-gray-800 mb-2">Encerramento</h3>
+                            <p class="text-gray-600">Considerações finais e agradecimentos</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Temas de Interesse</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                    O workshop abordará diversos temas relacionados à linguística computacional, IA responsável e tratamento de informação.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-language text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Processamento de linguagem natural</h3>
+                    </div>
+                    <p class="text-gray-600">Técnicas avançadas para análise e geração de linguagem natural em português.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-file-alt text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Mineração de textos</h3>
+                    </div>
+                    <p class="text-gray-600">Métodos para extração de conhecimento e padrões em grandes volumes de texto.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-project-diagram text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Gerenciamento de dados em grafos</h3>
+                    </div>
+                    <p class="text-gray-600">Técnicas para armazenamento e análise de dados estruturados como grafos.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-search text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Recuperação de informação</h3>
+                    </div>
+                    <p class="text-gray-600">Sistemas e algoritmos para busca e recuperação eficiente de informação.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-robot text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">IA responsável</h3>
+                    </div>
+                    <p class="text-gray-600">Abordagens para desenvolvimento de IA justa, transparente e explicável.</p>
+                </div>
+                
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-blue-300 transition duration-300">
+                    <div class="flex items-center mb-3">
+                        <div class="bg-blue-100 p-2 rounded-full mr-3">
+                            <i class="fas fa-users text-blue-600"></i>
+                        </div>
+                        <h3 class="text-lg font-semibold">Redes sociais e crowdsourcing</h3>
+                    </div>
+                    <p class="text-gray-600">Análise de dados de redes sociais e técnicas de coleta colaborativa de dados.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 bg-blue-50 rounded-xl p-6">
+                <h3 class="text-xl font-semibold text-blue-800 mb-4">Relevância Científica</h3>
+                <p class="text-gray-700">
+                    A ênfase em IA responsável contribuirá para discussões sobre imparcialidade, justiça, transparência, explicabilidade e sustentabilidade no desenvolvimento de algoritmos e modelos para o português, promovendo avanços tecnológicos e impactos sociais positivos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Committee Section -->
+    <section id="committee" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Comitê Organizador</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                    Conheça o Comitê Gestor do INCT-TILD-IAR responsável pela organização do Workshop RALI.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-5xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Marcos André Gonçalves</h3>
+                    <p class="text-blue-600 font-medium mb-2">Coordenador</p>
+                    <p class="text-gray-600 mb-3">UFMG</p>
+                    <p class="text-gray-500 text-sm">
+                        <i class="fas fa-envelope mr-2"></i> mgoncalv@dcc.ufmg.br
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-5xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Altigran Silva</h3>
+                    <p class="text-blue-600 font-medium mb-2">Sub-Coordenador</p>
+                    <p class="text-gray-600 mb-3">UFAM</p>
+                    <p class="text-gray-500 text-sm">
+                        <i class="fas fa-envelope mr-2"></i> alti@icomp.ufa.edu.br
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-5xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Jussara Almeida</h3>
+                    <p class="text-blue-600 font-medium mb-2">Membro</p>
+                    <p class="text-gray-600 mb-3">UFMG</p>
+                    <p class="text-gray-500 text-sm">
+                        <i class="fas fa-envelope mr-2"></i> jussara@dcc.ufmg.br
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-5xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Maria José Bocorny Finatto</h3>
+                    <p class="text-blue-600 font-medium mb-2">Membro</p>
+                    <p class="text-gray-600 mb-3">UFRGS</p>
+                    <p class="text-gray-500 text-sm">
+                        <i class="fas fa-envelope mr-2"></i> mariafinatto@gmail.com
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-5xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Aline Paes</h3>
+                    <p class="text-blue-600 font-medium mb-2">Membro</p>
+                    <p class="text-gray-600 mb-3">UFF</p>
+                    <p class="text-gray-500 text-sm">
+                        <i class="fas fa-envelope mr-2"></i> alinepaes@ic.uff.br
+                    </p>
+                </div>
+                
+                <div class="bg-white p-6 rounded-xl shadow-md text-center">
+                    <div class="w-32 h-32 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center">
+                        <i class="fas fa-user-tie text-5xl text-blue-600"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-1">Adriana Pagano</h3>
+                    <p class="text-blue-600 font-medium mb-2">Membro</p>
+                    <p class="text-gray-600 mb-3">UFMG</p>
+                    <p class="text-gray-500 text-sm">
+                        <i class="fas fa-envelope mr-2"></i> apagano@ufmg.br
+                    </p>
+                </div>
+            </div>
+            
+            <div class="mt-10 bg-white p-6 rounded-xl shadow-md">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Apoio</h3>
+                <div class="flex items-center">
+                    <i class="fas fa-hands-helping text-blue-600 text-2xl mr-4"></i>
+                    <p class="text-gray-700">Washington Cunha</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section id="registration" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Inscrições</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto mt-4">
+                    Preencha o formulário abaixo para se inscrever no Workshop RALI.
+                </p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto bg-gray-50 p-8 rounded-xl shadow-md">
+                <form id="registration-form" class="space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail *</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label for="institution" class="block text-sm font-medium text-gray-700 mb-1">Instituição *</label>
+                        <input type="text" id="institution" name="institution" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label for="position" class="block text-sm font-medium text-gray-700 mb-1">Cargo/Função *</label>
+                        <input type="text" id="position" name="position" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    
+                    <div>
+                        <label for="interest" class="block text-sm font-medium text-gray-700 mb-1">Área de Interesse Principal *</label>
+                        <select id="interest" name="interest" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">Selecione uma opção</option>
+                            <option value="linguistica">Linguística Computacional</option>
+                            <option value="ia">Inteligência Artificial</option>
+                            <option value="bd">Banco de Dados</option>
+                            <option value="info">Tratamento de Informação</option>
+                            <option value="outra">Outra</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="comments" class="block text-sm font-medium text-gray-700 mb-1">Comentários ou Perguntas</label>
+                        <textarea id="comments" name="comments" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input id="terms" name="terms" type="checkbox" required class="h-4 w-4 text-blue-600 focus:ring-blue-500 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">
+                            Concordo com os <a href="#" class="text-blue-600 hover:text-blue-800">termos e condições</a> *
+                        </label>
+                    </div>
+                    
+                    <div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 px-4 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i> Enviar Inscrição
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="form-success" class="hidden mt-6 p-4 bg-green-50 text-green-700 rounded-md border border-green-200">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle text-green-500 text-xl mr-3"></i>
+                        <p class="font-medium">Inscrição enviada com sucesso!</p>
+                    </div>
+                    <p class="mt-2 text-sm">Obrigado por se inscrever no Workshop RALI. Entraremos em contato em breve com mais informações.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 text-center">
+                <p class="text-gray-600">
+                    <i class="fas fa-info-circle mr-2"></i> 
+                    O número esperado de participantes será entre 50-80, incluindo todos os membros do INCT e outros pesquisadores interessados.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Workshop RALI</h3>
+                    <p class="text-gray-400">
+                        I Workshop do INCT em Inteligência Artificial Responsável para Linguística Computacional e Tratamento e Disseminação de Informação.
+                    </p>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i class="fab fa-github text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Links Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition duration-300">Sobre o Workshop</a></li>
+                        <li><a href="#schedule" class="text-gray-400 hover:text-white transition duration-300">Programação</a></li>
+                        <li><a href="#topics" class="text-gray-400 hover:text-white transition duration-300">Temas</a></li>
+                        <li><a href="#committee" class="text-gray-400 hover:text-white transition duration-300">Comitê</a></li>
+                        <li><a href="#registration" class="text-gray-400 hover:text-white transition duration-300">Inscrições</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-blue-400"></i>
+                            <span class="text-gray-400">contato@inct-tild-iar.org.br</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-university mt-1 mr-3 text-blue-400"></i>
+                            <span class="text-gray-400">INCT-TILD-IAR - Instituto Nacional de Ciência e Tecnologia em Inteligência Artificial Responsável para Linguística Computacional</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 text-sm">
+                    &copy; 2025 Workshop RALI - INCT-TILD-IAR. Todos os direitos reservados.
+                </p>
+                <div class="mt-4 md:mt-0">
+                    <a href="#" class="text-gray-400 hover:text-white text-sm mr-4">Política de Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white text-sm">Termos de Uso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <button id="back-to-top" class="hidden fixed bottom-6 right-6 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition duration-300">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Form submission
+        const registrationForm = document.getElementById('registration-form');
+        const formSuccess = document.getElementById('form-success');
+        
+        registrationForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Here you would typically send the form data to a server
+            // For this example, we'll just show the success message
+            registrationForm.classList.add('hidden');
+            formSuccess.classList.remove('hidden');
+            
+            // Scroll to show the success message
+            formSuccess.scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Back to top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.remove('hidden');
+            } else {
+                backToTopBtn.classList.add('hidden');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ 
+                        behavior: 'smooth' 
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
